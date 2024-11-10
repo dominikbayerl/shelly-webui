@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { Badge, Button, SideBar, TabBar, Card, FloatingBubble, Input, Form } from "antd";
-import { useAppSelector, useAppDispatch } from '../hooks';
-import { Device, DeviceModel, DeviceType } from './device';
-import { addDevice, devicesSelector, fetchSettings } from '../features/DevicesSlice';
+import { useSelector } from "react-redux";
+import { Input, Form } from "antd";
+import { useAppDispatch } from '../hooks';
+import { Device } from './device';
+import { devicesSelector, fetchSettings } from '../features/DevicesSlice';
 import { PlusCircleOutlined } from '@ant-design/icons';
 
 import * as styles from './DeviceView.module.less';
@@ -25,8 +25,8 @@ export const DeviceView: FunctionComponent<{}> = () => {
                             </div>
                         }
                     >
-                        <Input placeholder='Add Device' name="hostname" clearable
-                            onEnterPress={(evt) => dispatch(fetchSettings((evt.target as HTMLInputElement).value)) }
+                        <Input placeholder='Add Device' name="hostname" allowClear
+                            onPressEnter={(evt) => dispatch(fetchSettings((evt.target as HTMLInputElement).value)) }
                          />
                     </Form.Item>
                 </Form>

@@ -1,7 +1,5 @@
-import { TabBar, Empty } from "antd";
-import { AppOutlined, SetOutlined } from "@ant-design/icons";
+import { Empty } from "antd";
 import { useAppSelector, useAppDispatch } from './hooks'
-import { setActiveKey } from './features/AppSlice';
 import { DeviceView } from "./components/DeviceView";
 import { SettingsView } from "./SettingsView";
 

@@ -29,11 +29,11 @@ export const SHDM2: FunctionComponent<SHDM2Model> = (props) => {
     return (
         <Card title={
         <div style={{ fontWeight: 'normal' }}>
-            <AntOutline style={{ marginRight: '4px', color: '#1677ff' }} />
+            <ControlOutlined style={{ marginRight: '4px', color: '#1677ff' }} />
             { props.name }
         </div>
         }
-        extra={<RightOutline />}
+        extra={<RightOutlined />}
         className={styles.device}
         >
         <div className={styles.content}>

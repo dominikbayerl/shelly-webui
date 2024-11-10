@@ -1,6 +1,5 @@
 import { Button, List, Space, Slider } from 'antd';
 import { UpOutlined, DownOutlined, StopOutlined } from '@ant-design/icons';
-import { SliderValue } from 'antd-mobile/es/components/slider';
 import { FunctionComponent, useState } from 'react';
 import * as styles from './shsw21.module.less';
 
@@ -50,7 +49,7 @@ export const Roller: FunctionComponent<RollerState & Handlers> = (props) => {
             <Slider
                 marks={marks}
                 value={sliderValue}
-                onChange={(value: SliderValue) => setSliderValue(value as number)}
+                onChange={(value: number) => setSliderValue(value as number)}
                 onChangeComplete={x => props.onPosition?.(x as number)}
             />
             <div className={styles.controlbar}>
