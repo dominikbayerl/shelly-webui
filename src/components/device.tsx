@@ -1,13 +1,15 @@
-import { FloatingBubble, List, Card } from "antd-mobile";
+import { List, Card } from "antd";
 import { FunctionComponent, useEffect } from "react";
 import { SHSW21, SHSW21Model } from './shsw21';
+import { SHDM2, SHDM2Model } from "./shdm2";
 import { deleteDevice, fetchStatus } from '../features/DevicesSlice';
 import { useAppDispatch } from "../hooks";
+import { DeleteOutlined, QuestionCircleOutlined } from "@ant-design/icons";
 import * as styles from './device.module.less';
-import { DeleteOutline, QuestionCircleOutline } from "antd-mobile-icons";
 
 export enum DeviceType {
-    SHSW21 = "SHSW-21"
+    SHSW21 = "SHSW-21",
+    SHDM2 = "SHDM-2",
 };
 export interface DeviceInfo {
     type: DeviceType;
@@ -39,14 +41,18 @@ export const Device: FunctionComponent<Props> = (props) => {
             return (
                 <SHSW21 {...props as SHSW21Model} />
             )
+        case DeviceType.SHDM2:
+            return (
+                <SHDM2 {...props as SHDM2Model} />
+            )
         default:
             return (
                 <Card key={props.device.mac} 
                     className={styles.device}
-                    extra={<DeleteOutline onClick={() => dispatch(deleteDevice(props.device.mac)) } />}
+                    extra={<DeleteOutlined onClick={() => dispatch(deleteDevice(props.device.mac)) } />}
                     title={
                         <div style={{ fontWeight: 'normal' }}>
-                            <QuestionCircleOutline style={{ marginRight: '4px', color: '#1677ff' }} />
+                            <QuestionCircleOutlined style={{ marginRight: '4px', color: '#1677ff' }} />
                             {props.name}
                         </div>
                     }

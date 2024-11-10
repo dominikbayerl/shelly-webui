@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
-import { Button, Card, List, Toast, Skeleton } from 'antd-mobile'
-import { AntOutline, RightOutline } from 'antd-mobile-icons'
+import { Card, Skeleton } from 'antd';
+import { ControlOutlined, RightOutlined } from '@ant-design/icons';
 import { Settings, Status, DeviceInfo } from './device';
 import * as styles from './shsw21.module.less';
 import { useAppDispatch } from '../hooks';

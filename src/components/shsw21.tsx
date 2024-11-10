@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
-import { Button, Card, List, Toast, Skeleton } from 'antd-mobile'
-import { AntOutline, RightOutline } from 'antd-mobile-icons'
+import { Card, Skeleton } from 'antd';
+import { ControlOutlined, RightOutlined } from '@ant-design/icons';
 import { Settings, Status, DeviceInfo } from './device';
 import { Roller, RollerState } from './roller';
 import * as styles from './shsw21.module.less';
@@ -29,11 +29,11 @@ export const SHSW21: FunctionComponent<SHSW21Model> = (props) => {
     return (
         <Card title={
         <div style={{ fontWeight: 'normal' }}>
-            <AntOutline style={{ marginRight: '4px', color: '#1677ff' }} />
+            <ControlOutlined style={{ marginRight: '4px', color: '#1677ff' }} />
             { props.name }
         </div>
         }
-        extra={<RightOutline />}
+        extra={<RightOutlined />}
         className={styles.device}
         >
         <div className={styles.content}>

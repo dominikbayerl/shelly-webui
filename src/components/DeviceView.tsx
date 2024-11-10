@@ -1,10 +1,10 @@
 import React, { FunctionComponent, useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux"
-import { Badge, Button, SideBar, TabBar, Card, FloatingBubble, Input, Form } from "antd-mobile"
-import { useAppSelector, useAppDispatch } from '../hooks'
+import { useDispatch, useSelector } from "react-redux";
+import { Badge, Button, SideBar, TabBar, Card, FloatingBubble, Input, Form } from "antd";
+import { useAppSelector, useAppDispatch } from '../hooks';
 import { Device, DeviceModel, DeviceType } from './device';
 import { addDevice, devicesSelector, fetchSettings } from '../features/DevicesSlice';
-import { AddCircleOutline } from 'antd-mobile-icons';
+import { PlusCircleOutlined } from '@ant-design/icons';
 
 import * as styles from './DeviceView.module.less';
 
@@ -21,7 +21,7 @@ export const DeviceView: FunctionComponent<{}> = () => {
                     <Form.Item
                         extra={
                             <div className={styles.extra}>
-                                <AddCircleOutline />
+                                <PlusCircleOutlined />
                             </div>
                         }
                     >

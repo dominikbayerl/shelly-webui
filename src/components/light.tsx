@@ -1,4 +1,5 @@
-import { Button, List, Space, Slider, MoonOutlined, SunOutlined, PoweroffOutlined, BulbOutlined } from 'antd-mobile'
+import { Button, List, Space, Slider } from 'antd';
+import { MoonOutlined, SunOutlined, PoweroffOutlined, BulbOutlined } from '@ant-design/icons';
 import { SliderValue } from 'antd-mobile/es/components/slider';
 import { FunctionComponent, useState } from 'react';
 import * as styles from './shdm2.module.less';
@@ -44,14 +45,13 @@ export const Light: FunctionComponent<LightState & Handlers> = (props) => {
     return (
         <div className={styles.light}>
             <Slider
-                ticks
                 marks={marks}
                 value={sliderValue}
                 onChange={(value: SliderValue) => setSliderValue(value as number)}
-                onAfterChange={x => props.onBrightness?.(x as number)}
+                onChangeComplete={x => props.onBrightness?.(x as number)}
             />
             <div className={styles.controlbar}>
-                <Space className={styles.buttons} align='center' justify='end'>
+                <Space className={styles.buttons} align='center'>
                     <Button color='primary' onClick={props.onButtonOff}>
                         <PoweroffOutlined />
                     </Button>

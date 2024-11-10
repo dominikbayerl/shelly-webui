@@ -14,8 +14,9 @@
     "process": "^0.11.10"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.5.1",
     "@reduxjs/toolkit": "^1.9.7",
-    "antd-mobile": "^5.34.0",
+    "antd": "^5.21.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^7.2.9"
