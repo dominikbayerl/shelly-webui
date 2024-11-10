@@ -3,6 +3,9 @@ import { createSlice, createAsyncThunk, createAction, createSelector, createEnti
 import { DeviceModel, DeviceType, Settings } from '../components/device';
 import { SHSW21Model } from '../components/shsw21';
 import { RootState } from '../store';
+import { SHDM2Model } from '../components/shdm2';
+import { Light } from '../components/light';
+import { response } from 'msw';
 
 
 type PayloadActionType = Settings;
@@ -23,6 +26,30 @@ type RollerCommandPayload = {
     device: SHSW21Model,
     roller: number,
     command: RollerCommand
+};
+
+export enum LightCommandWord {
+    On = "on",
+    Off = "off",
+    Toggle = "toggle",
+};
+export enum LightDimWord {
+    Up = "up",
+    Down = "down",
+    Stop = "Stop",
+};
+type LightCommand = {
+    turn?: LightCommandWord;
+    timer?: number;
+    brightness?: number;
+    transition?: number;
+    dim?: LightDimWord;
+    step?: number;
+};
+type LightCommandPayload = {
+    device: SHDM2Model,
+    light: number,
+    command: LightCommand,
 };
 
 const encodeGetParams = (p: Object) => Object.entries(p).map(kv => kv.map(encodeURIComponent).join("=")).join("&");
@@ -56,6 +83,20 @@ export const sendRollerCmd = createAsyncThunk(
             headers: {
                 'Accept': 'application/json',
             }
+        });
+        response.json();
+    }
+);
+
+export const sendLightCmd = createAsyncThunk(
+    'light/cmd',
+    async ({ device, light, command }: LightCommandPayload, thunkAPI) => {
+        const response = await fetch(`http://${device.device.hostname}/light/${light}?${encodeGetParams(command)}`, {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json',
+            },
         });
         response.json();
     }

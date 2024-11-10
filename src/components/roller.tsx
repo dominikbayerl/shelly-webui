@@ -1,5 +1,5 @@
 import { Button, List, Space, Slider } from 'antd-mobile'
-import { ColumnHeightOutlined, DownOutlined, PauseOutlined, UpOutlined } from '@ant-design/icons'
+import { UpOutline, DownOutline, StopOutline } from 'antd-mobile-icons'
 import { SliderValue } from 'antd-mobile/es/components/slider';
 import { FunctionComponent, useState } from 'react';
 import * as styles from './shsw21.module.less';
@@ -31,7 +31,7 @@ export declare interface Handlers {
 };
 
 const marks = {
-      0:   <DownOutlined />,
+      0:   <DownOutline />,
      10:  10,
      20:  20,
      30:  30,
@@ -41,7 +41,7 @@ const marks = {
      70:  70,
      80:  80,
      90:  90,
-    100: <UpOutlined />,
+    100: <UpOutline />,
 };
 export const Roller: FunctionComponent<RollerState & Handlers> = (props) => {
     const [sliderValue, setSliderValue] = useState(props.current_pos || 0);
@@ -60,13 +60,13 @@ export const Roller: FunctionComponent<RollerState & Handlers> = (props) => {
                 </Space>
                 <Space className={styles.buttons} align='center' justify='end'>
                     <Button color='primary' onClick={props.onButtonDown}>
-                        <DownOutlined />
+                        <DownOutline />
                     </Button>
                     <Button color='primary' onClick={props.onButtonStop}>
-                        <PauseOutlined />
+                        <StopOutline />
                     </Button>
                     <Button color='primary' onClick={props.onButtonUp}>
-                        <UpOutlined />
+                        <UpOutline />
                     </Button>
                 </Space>
             </div>

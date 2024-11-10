@@ -4,7 +4,7 @@ import { Badge, Button, SideBar, TabBar, Card, FloatingBubble, Input, Form } fro
 import { useAppSelector, useAppDispatch } from '../hooks'
 import { Device, DeviceModel, DeviceType } from './device';
 import { addDevice, devicesSelector, fetchSettings } from '../features/DevicesSlice';
-import { EnterOutlined } from '@ant-design/icons';
+import { AddCircleOutline } from 'antd-mobile-icons';
 
 import * as styles from './DeviceView.module.less';
 
@@ -21,7 +21,7 @@ export const DeviceView: FunctionComponent<{}> = () => {
                     <Form.Item
                         extra={
                             <div className={styles.extra}>
-                                <EnterOutlined />
+                                <AddCircleOutline />
                             </div>
                         }
                     >

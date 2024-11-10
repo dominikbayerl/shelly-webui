@@ -1,5 +1,5 @@
 import { TabBar, Empty } from "antd-mobile";
-import { HeatMapOutlined, ControlOutlined } from "@ant-design/icons";
+import { AppOutline, SetOutline } from "antd-mobile-icons";
 import { useAppSelector, useAppDispatch } from './hooks'
 import { setActiveKey } from './features/AppSlice';
 import { DeviceView } from "./components/DeviceView";
@@ -26,8 +26,8 @@ export default function App() {
     return (
         <>
             <TabBar activeKey={activeKey} onChange={key => dispatch(setActiveKey(key))}>
-                <TabBar.Item key="devices" icon={<HeatMapOutlined />}>Devices</TabBar.Item>
-                <TabBar.Item key="settings" icon={<ControlOutlined />}>Settings</TabBar.Item>
+                <TabBar.Item key="devices" icon={<AppOutline />}>Devices</TabBar.Item>
+                <TabBar.Item key="settings" icon={<SetOutline />}>Settings</TabBar.Item>
             </TabBar>
             {activeView(activeKey)}
         </>

@@ -4,7 +4,7 @@ import { SHSW21, SHSW21Model } from './shsw21';
 import { deleteDevice, fetchStatus } from '../features/DevicesSlice';
 import { useAppDispatch } from "../hooks";
 import * as styles from './device.module.less';
-import { DeleteOutlined, QuestionOutlined } from "@ant-design/icons";
+import { DeleteOutline, QuestionCircleOutline } from "antd-mobile-icons";
 
 export enum DeviceType {
     SHSW21 = "SHSW-21"
@@ -43,10 +43,10 @@ export const Device: FunctionComponent<Props> = (props) => {
             return (
                 <Card key={props.device.mac} 
                     className={styles.device}
-                    extra={<DeleteOutlined onClick={() => dispatch(deleteDevice(props.device.mac)) } />}
+                    extra={<DeleteOutline onClick={() => dispatch(deleteDevice(props.device.mac)) } />}
                     title={
                         <div style={{ fontWeight: 'normal' }}>
-                            <QuestionOutlined style={{ marginRight: '4px', color: '#1677ff' }} />
+                            <QuestionCircleOutline style={{ marginRight: '4px', color: '#1677ff' }} />
                             {props.name}
                         </div>
                     }
